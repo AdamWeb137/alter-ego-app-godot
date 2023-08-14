@@ -263,9 +263,9 @@ func get_time_of_day():
 	var h = current_time.hour
 	if h >= 5 and h < 12:
 		return 0
-	elif h >= 12 and h < 6:
+	elif h >= 12 and h < 18:
 		return 1
-	elif h >= 6 and h < 24:
+	elif h >= 18 and h < 24:
 		return 2
 	else:
 		return 3
