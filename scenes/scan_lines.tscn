@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dat1pgplalhpn"]
+
+[ext_resource type="Texture2D" uid="uid://diqo0yxmoeben" path="res://scan.png" id="1_ekugf"]
+[ext_resource type="Script" path="res://scripts/scan_lines.gd" id="1_p18ml"]
+
+[node name="ScanLines" type="Node2D"]
+modulate = Color(0, 0.388235, 0, 0.129412)
+z_index = 4
+texture_filter = 1
+script = ExtResource("1_p18ml")
+
+[node name="Scan1" type="Sprite2D" parent="."]
+texture = ExtResource("1_ekugf")
+
+[node name="Scan2" type="Sprite2D" parent="."]
+position = Vector2(0, -320)
+texture = ExtResource("1_ekugf")

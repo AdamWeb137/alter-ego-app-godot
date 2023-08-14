@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://tkci0enp4wdk"]
+
+[ext_resource type="Script" path="res://scripts/help.gd" id="1_qplef"]
+[ext_resource type="PackedScene" uid="uid://du8mo0nweakna" path="res://scenes/dialouge_box.tscn" id="2_eim2k"]
+
+[node name="Help" type="Node2D"]
+position = Vector2(-528, 0)
+script = ExtResource("1_qplef")
+
+[node name="DialougeBox" parent="." instance=ExtResource("2_eim2k")]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://blpcp1e412fjr"
+path="res://.godot/imported/months.png-685a1e27167ed7e84acf29a581ecfc40.fontdata"
+
+[deps]
+
+source_file="res://fonts/months.png"
+dest_files=["res://.godot/imported/months.png-685a1e27167ed7e84acf29a581ecfc40.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\'a\'-\'l\'")
+columns=12
+rows=1
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+fallbacks=[]
+compress=true

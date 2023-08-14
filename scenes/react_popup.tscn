@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://jbtorfjbkm34"]
+
+[ext_resource type="Texture2D" uid="uid://b54r7otlipjqk" path="res://AlterEgo01.png" id="1_2hug7"]
+[ext_resource type="Script" path="res://scripts/react_popup.gd" id="1_c6e51"]
+[ext_resource type="Texture2D" uid="uid://bfx84rvb4pgx2" path="res://circle.png" id="2_8e88g"]
+
+[sub_resource type="Gradient" id="Gradient_a4gf0"]
+offsets = PackedFloat32Array(0, 0.398323, 1)
+colors = PackedColorArray(0.184314, 0.741176, 1, 0.615686, 0.764706, 0.137255, 0.811765, 0.768627, 1, 0.388235, 0.780392, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38vho"]
+atlas = ExtResource("1_2hug7")
+region = Rect2(20, 807, 279, 26)
+
+[node name="ReactPopup" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_c6e51")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 64
+one_shot = true
+texture = ExtResource("2_8e88g")
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_min = 0.03
+scale_amount_max = 0.1
+color_ramp = SubResource("Gradient_a4gf0")
+hue_variation_min = 0.49
+hue_variation_max = 0.82
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_38vho")

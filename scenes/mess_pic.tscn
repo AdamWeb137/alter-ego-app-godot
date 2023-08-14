@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg7m6la6em2uc"]
+
+[ext_resource type="Texture2D" uid="uid://cbvr1rjbsbp0v" path="res://pixel.png" id="1_0wkur"]
+[ext_resource type="Script" path="res://scripts/mess_pic.gd" id="1_mpi3e"]
+[ext_resource type="Texture2D" uid="uid://qljf7xclmsrs" path="res://cg/cg000.png" id="2_xu2sw"]
+
+[node name="MessPic" type="Node2D"]
+z_index = 2
+position = Vector2(408, 0)
+script = ExtResource("1_mpi3e")
+
+[node name="Back" type="Sprite2D" parent="."]
+modulate = Color(0, 0.901961, 0.196078, 1)
+texture_filter = 1
+scale = Vector2(270, 320)
+texture = ExtResource("1_0wkur")
+
+[node name="Pic" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_xu2sw")

@@ -1,0 +1,98 @@
+[gd_scene load_steps=15 format=3 uid="uid://cgsqfl2yqoyan"]
+
+[ext_resource type="Texture2D" uid="uid://b54r7otlipjqk" path="res://AlterEgo01.png" id="1_bif8e"]
+[ext_resource type="Script" path="res://scripts/menu_btns.gd" id="1_nxgnb"]
+[ext_resource type="Texture2D" uid="uid://bjdcamnv2pacv" path="res://misc/jp.png" id="4_jbwmy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gdiqk"]
+load_path = "res://.godot/imported/AlterEgo01.png-0b2ff2da040cf4f81f7a08ed5cb05bed.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3fqn"]
+atlas = SubResource("CompressedTexture2D_gdiqk")
+region = Rect2(608, 644, 64, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fx7ih"]
+size = Vector2(64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3q7e"]
+atlas = SubResource("CompressedTexture2D_gdiqk")
+region = Rect2(609, 715, 62, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trwqy"]
+atlas = SubResource("CompressedTexture2D_gdiqk")
+region = Rect2(679, 710, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlqrm"]
+atlas = SubResource("CompressedTexture2D_gdiqk")
+region = Rect2(753, 713, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d70rn"]
+atlas = SubResource("CompressedTexture2D_gdiqk")
+region = Rect2(825, 714, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sisr2"]
+atlas = ExtResource("1_bif8e")
+region = Rect2(681, 642, 63, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u4ou"]
+atlas = ExtResource("1_bif8e")
+region = Rect2(759, 641, 54, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3niur"]
+size = Vector2(54, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpi4s"]
+size = Vector2(32, 32)
+
+[node name="MenuBtns" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_nxgnb")
+
+[node name="freetalk" type="TouchScreenButton" parent="."]
+position = Vector2(-224, 80)
+texture_normal = SubResource("AtlasTexture_x3fqn")
+shape = SubResource("RectangleShape2D_fx7ih")
+
+[node name="people" type="TouchScreenButton" parent="."]
+position = Vector2(168, -144)
+texture_normal = SubResource("AtlasTexture_l3q7e")
+shape = SubResource("RectangleShape2D_fx7ih")
+
+[node name="world" type="TouchScreenButton" parent="."]
+position = Vector2(168, -80)
+texture_normal = SubResource("AtlasTexture_trwqy")
+shape = SubResource("RectangleShape2D_fx7ih")
+
+[node name="love" type="TouchScreenButton" parent="."]
+position = Vector2(168, -16)
+texture_normal = SubResource("AtlasTexture_mlqrm")
+shape = SubResource("RectangleShape2D_fx7ih")
+
+[node name="help" type="TouchScreenButton" parent="."]
+position = Vector2(168, 48)
+texture_normal = SubResource("AtlasTexture_d70rn")
+shape = SubResource("RectangleShape2D_fx7ih")
+
+[node name="calendar" type="TouchScreenButton" parent="."]
+position = Vector2(-224, -144)
+texture_normal = SubResource("AtlasTexture_sisr2")
+shape = SubResource("RectangleShape2D_fx7ih")
+
+[node name="clock" type="TouchScreenButton" parent="."]
+position = Vector2(-224, -80)
+texture_normal = SubResource("AtlasTexture_1u4ou")
+shape = SubResource("RectangleShape2D_3niur")
+
+[node name="language" type="TouchScreenButton" parent="."]
+position = Vector2(184, 120)
+texture_normal = ExtResource("4_jbwmy")
+shape = SubResource("RectangleShape2D_mpi4s")
+
+[connection signal="released" from="freetalk" to="." method="freetalk_btn"]
+[connection signal="pressed" from="people" to="." method="btn" binds= ["charen", false]]
+[connection signal="pressed" from="world" to="." method="btn" binds= ["worlden", false]]
+[connection signal="pressed" from="love" to="." method="btn" binds= ["diagnose", false]]
+[connection signal="pressed" from="help" to="." method="btn" binds= ["help", false]]
+[connection signal="released" from="calendar" to="." method="calendar_btn"]
+[connection signal="released" from="clock" to="." method="clock_btn"]
+[connection signal="pressed" from="language" to="." method="change_language"]

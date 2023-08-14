@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsixkbk4gwxb0"]
+
+[ext_resource type="PackedScene" uid="uid://c2v6p2tnbcuyg" path="res://scenes/ae.tscn" id="1_7fq3e"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_7gwtw"]
+[ext_resource type="PackedScene" uid="uid://byjbhrkulaa" path="res://scenes/greeting.tscn" id="3_ee1k4"]
+[ext_resource type="PackedScene" uid="uid://bca0aera5kxwi" path="res://scenes/random_static.tscn" id="4_udtbn"]
+[ext_resource type="PackedScene" uid="uid://dat1pgplalhpn" path="res://scenes/scan_lines.tscn" id="5_5fgaw"]
+[ext_resource type="Texture2D" uid="uid://b54r7otlipjqk" path="res://AlterEgo01.png" id="5_sn27d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aq7nk"]
+atlas = ExtResource("5_sn27d")
+region = Rect2(488, 0, 240, 160)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_7gwtw")
+
+[node name="AEFace" parent="." instance=ExtResource("1_7fq3e")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Greeting" parent="." instance=ExtResource("3_ee1k4")]
+
+[node name="RandomStatic" parent="." instance=ExtResource("4_udtbn")]
+z_index = 2
+position = Vector2(0, 32)
+scale = Vector2(2, 2)
+
+[node name="ScanLines" parent="." instance=ExtResource("5_5fgaw")]
+
+[node name="border" type="Sprite2D" parent="."]
+z_index = 4
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_aq7nk")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[node name="SE" type="AudioStreamPlayer" parent="."]
+volume_db = -9.074
+
+[node name="VOICE" type="AudioStreamPlayer" parent="."]

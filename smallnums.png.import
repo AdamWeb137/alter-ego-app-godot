@@ -1,0 +1,21 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://rnrbjhnrifpg"
+path="res://.godot/imported/smallnums.png-b1ad753041ae2f7600f3f8d92b2bce9d.fontdata"
+
+[deps]
+
+source_file="res://smallnums.png"
+dest_files=["res://.godot/imported/smallnums.png-b1ad753041ae2f7600f3f8d92b2bce9d.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\'0\'-\'9\'")
+columns=10
+rows=1
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+fallbacks=[]
+compress=true

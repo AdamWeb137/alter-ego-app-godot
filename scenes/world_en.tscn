@@ -1,0 +1,131 @@
+[gd_scene load_steps=16 format=3 uid="uid://chkob1kwi7lg7"]
+
+[ext_resource type="Script" path="res://scripts/world_en.gd" id="1_bupj0"]
+[ext_resource type="Texture2D" uid="uid://cl5xam101co8v" path="res://worlden/WorldEncyclopedia.png" id="1_jcm3t"]
+[ext_resource type="Texture2D" uid="uid://cbvr1rjbsbp0v" path="res://pixel.png" id="2_su7g8"]
+[ext_resource type="Texture2D" uid="uid://b54r7otlipjqk" path="res://AlterEgo01.png" id="3_t8ixn"]
+[ext_resource type="PackedScene" uid="uid://cqbs5nlghjvaj" path="res://scenes/exit_btn.tscn" id="4_tn36d"]
+[ext_resource type="PackedScene" uid="uid://du8mo0nweakna" path="res://scenes/dialouge_box.tscn" id="6_uaspa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrm4u"]
+atlas = ExtResource("1_jcm3t")
+region = Rect2(0, 0, 480, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta3nc"]
+atlas = ExtResource("1_jcm3t")
+region = Rect2(208, 328, 160, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7cs8"]
+atlas = ExtResource("3_t8ixn")
+region = Rect2(496, 640, 104, 104)
+
+[sub_resource type="Gradient" id="Gradient_44pd2"]
+offsets = PackedFloat32Array(0, 0.506494, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.136826, 0.136826, 0.136826, 0.054902, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cvted"]
+gradient = SubResource("Gradient_44pd2")
+width = 224
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3sgd"]
+atlas = ExtResource("1_jcm3t")
+region = Rect2(259, 374, 252, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8fps"]
+atlas = ExtResource("1_jcm3t")
+region = Rect2(8, 400, 360, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5lcm"]
+atlas = ExtResource("1_jcm3t")
+region = Rect2(10, 378, 132, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkyai"]
+size = Vector2(480, 224)
+
+[node name="WorldEn" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_bupj0")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_hrm4u")
+
+[node name="Left" type="Node2D" parent="."]
+position = Vector2(-200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Left"]
+position = Vector2(-192, 0)
+scale = Vector2(1, 9.5)
+texture = SubResource("AtlasTexture_ta3nc")
+
+[node name="Revolver" type="Sprite2D" parent="Left"]
+modulate = Color(1, 1, 1, 0.623529)
+position = Vector2(-240, 0)
+scale = Vector2(1.25, 1.25)
+texture = SubResource("AtlasTexture_f7cs8")
+
+[node name="Lines" type="Node2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.239216, 0.239216, 0.239216, 0.505882)
+scale = Vector2(480, 228)
+texture = ExtResource("2_su7g8")
+
+[node name="EnItems" type="Node2D" parent="."]
+position = Vector2(0, -80)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.360784)
+rotation = -1.5708
+scale = Vector2(1, 480)
+texture = SubResource("GradientTexture1D_cvted")
+
+[node name="Title" type="Node2D" parent="."]
+position = Vector2(0, 8)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Title"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 128)
+scale = Vector2(480, 50)
+texture = ExtResource("2_su7g8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Title"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, -144)
+scale = Vector2(480, 50)
+texture = ExtResource("2_su7g8")
+
+[node name="fromright" type="Node2D" parent="Title"]
+position = Vector2(480, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Title/fromright"]
+position = Vector2(104, -144)
+texture = SubResource("AtlasTexture_r3sgd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Title/fromright"]
+position = Vector2(56, -120)
+texture = SubResource("AtlasTexture_e8fps")
+
+[node name="fromleft" type="Node2D" parent="Title"]
+position = Vector2(-400, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Title/fromleft"]
+position = Vector2(-160, -144)
+texture = SubResource("AtlasTexture_r5lcm")
+
+[node name="ExitBtn" parent="." instance=ExtResource("4_tn36d")]
+position = Vector2(88, 120)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = -240.0
+offset_top = -112.0
+offset_right = 240.0
+offset_bottom = 112.0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_jkyai")
+
+[node name="DialougeBox" parent="." instance=ExtResource("6_uaspa")]
+position = Vector2(-504, 0)
+
+[connection signal="gui_input" from="ScrollContainer" to="." method="_input"]

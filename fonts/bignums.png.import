@@ -1,0 +1,21 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://uoki403v34qp"
+path="res://.godot/imported/bignums.png-b338e954eac741a03181f5967bbf28cf.fontdata"
+
+[deps]
+
+source_file="res://fonts/bignums.png"
+dest_files=["res://.godot/imported/bignums.png-b338e954eac741a03181f5967bbf28cf.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\'0\'-\'9\'")
+columns=10
+rows=1
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+fallbacks=[]
+compress=true

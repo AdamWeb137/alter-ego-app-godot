@@ -1,0 +1,21 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://dyaqib0gwvdfi"
+path="res://.godot/imported/calicons2.png-663bda461d3bffd1094fc9140d10623f.fontdata"
+
+[deps]
+
+source_file="res://fonts/calicons2.png"
+dest_files=["res://.godot/imported/calicons2.png-663bda461d3bffd1094fc9140d10623f.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\'a\'-\'l\'", "\' \'")
+columns=13
+rows=1
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+fallbacks=[]
+compress=true

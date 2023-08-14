@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3l13v74wacjs"]
+
+[ext_resource type="Texture2D" uid="uid://cl5xam101co8v" path="res://worlden/WorldEncyclopedia.png" id="1_dsr8s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tm42"]
+atlas = ExtResource("1_dsr8s")
+region = Rect2(2, 426, 364, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rd0yt"]
+size = Vector2(250, 20)
+
+[node name="EnItem" type="Node2D"]
+
+[node name="Selected" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(48, 0)
+texture = SubResource("AtlasTexture_2tm42")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -120.0
+offset_top = -13.0
+offset_right = 216.0
+offset_bottom = 13.0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+shape = SubResource("RectangleShape2D_rd0yt")

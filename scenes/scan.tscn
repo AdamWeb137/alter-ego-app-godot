@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw5pl8t6h73v5"]
+
+[ext_resource type="Texture2D" uid="uid://diqo0yxmoeben" path="res://scan.png" id="1_45kmj"]
+
+[node name="scan" type="Sprite2D"]
+modulate = Color(0.352941, 0.521569, 0.0784314, 0.196078)
+texture = ExtResource("1_45kmj")

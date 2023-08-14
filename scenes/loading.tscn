@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3bn55by3guxv"]
+
+[ext_resource type="Texture2D" uid="uid://b54r7otlipjqk" path="res://AlterEgo01.png" id="1_7nvtr"]
+[ext_resource type="Script" path="res://scripts/loading.gd" id="2_7hymu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsqu3"]
+atlas = ExtResource("1_7nvtr")
+region = Rect2(0, 0, 480, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d71h6"]
+atlas = ExtResource("1_7nvtr")
+region = Rect2(736, 0, 240, 160)
+
+[node name="Loading" type="Sprite2D"]
+z_index = 10
+texture_filter = 1
+scale = Vector2(1, 1.25)
+texture = SubResource("AtlasTexture_bsqu3")
+script = ExtResource("2_7hymu")
+
+[node name="static" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.329412)
+scale = Vector2(1.99599, 1.616)
+texture = SubResource("AtlasTexture_d71h6")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

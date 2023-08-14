@@ -1,0 +1,21 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://dc5gipjx0ogri"
+path="res://.godot/imported/calgreen.png-95c37a47eeb2a3ba7f7195591046d39d.fontdata"
+
+[deps]
+
+source_file="res://fonts/calgreen.png"
+dest_files=["res://.godot/imported/calgreen.png-95c37a47eeb2a3ba7f7195591046d39d.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\'0\'-\'9\'")
+columns=10
+rows=1
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+fallbacks=[]
+compress=true

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://byjbhrkulaa"]
+
+[ext_resource type="Script" path="res://scripts/greeting.gd" id="1_2kqvp"]
+[ext_resource type="PackedScene" uid="uid://du8mo0nweakna" path="res://scenes/dialouge_box.tscn" id="2_nbwvv"]
+
+[node name="Greeting" type="Node2D"]
+script = ExtResource("1_2kqvp")
+
+[node name="DialougeBox" parent="." instance=ExtResource("2_nbwvv")]
+position = Vector2(-528, 0)

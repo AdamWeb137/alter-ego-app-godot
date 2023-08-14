@@ -1,0 +1,21 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://ci3b784dfraxh"
+path="res://.godot/imported/characters.png-bfb09111c5e0a00aff89a877a51bdcc1.fontdata"
+
+[deps]
+
+source_file="res://worlden/characters.png"
+dest_files=["res://.godot/imported/characters.png-bfb09111c5e0a00aff89a877a51bdcc1.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\'a\'-\'r\'")
+columns=9
+rows=2
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+fallbacks=[]
+compress=true

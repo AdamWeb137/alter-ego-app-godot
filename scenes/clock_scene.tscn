@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://bc5dyub656tg4"]
+
+[ext_resource type="Script" path="res://scripts/clock_scene.gd" id="1_ganvm"]
+[ext_resource type="FontFile" uid="uid://uoki403v34qp" path="res://fonts/bignums.png" id="2_2uxt0"]
+[ext_resource type="Texture2D" uid="uid://b54r7otlipjqk" path="res://AlterEgo01.png" id="3_dho63"]
+[ext_resource type="FontFile" uid="uid://bxkm5syxol86h" path="res://fonts/smallnums2.png" id="4_7tbia"]
+[ext_resource type="FontFile" uid="uid://pe16jw1x7u6b" path="res://fonts/days.png" id="5_7gln4"]
+[ext_resource type="Shape2D" uid="uid://w2g8pi2e4wmd" path="res://misc/screnrect.tres" id="6_5vufo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uw038"]
+font = ExtResource("2_2uxt0")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuvqb"]
+atlas = ExtResource("3_dho63")
+region = Rect2(731, 376, 24, 50)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k68uv"]
+font = ExtResource("4_7tbia")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x0f2"]
+atlas = ExtResource("3_dho63")
+region = Rect2(561, 868, 17, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrkni"]
+atlas = ExtResource("3_dho63")
+region = Rect2(601, 867, 55, 34)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sk4r2"]
+font = ExtResource("5_7gln4")
+
+[node name="ClockScene" type="Node2D"]
+z_index = 5
+script = ExtResource("1_ganvm")
+
+[node name="Time" type="Node2D" parent="."]
+texture_filter = 1
+position = Vector2(-144, -240)
+
+[node name="Hour" type="Label" parent="Time"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "18"
+label_settings = SubResource("LabelSettings_uw038")
+
+[node name="Colon" type="Sprite2D" parent="Time"]
+position = Vector2(152, 32)
+texture = SubResource("AtlasTexture_kuvqb")
+
+[node name="Minute" type="Label" parent="Time"]
+offset_left = 160.0
+offset_right = 302.0
+offset_bottom = 69.0
+text = "93"
+label_settings = SubResource("LabelSettings_uw038")
+
+[node name="Date" type="Node2D" parent="."]
+texture_filter = 1
+position = Vector2(-208, 168)
+
+[node name="Year" type="Label" parent="Date"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "2014"
+label_settings = SubResource("LabelSettings_k68uv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Date"]
+position = Vector2(272, 24)
+texture = SubResource("AtlasTexture_2x0f2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Date"]
+position = Vector2(176, 24)
+texture = SubResource("AtlasTexture_2x0f2")
+
+[node name="Month" type="Label" parent="Date"]
+offset_left = 184.0
+offset_right = 344.0
+offset_bottom = 50.0
+text = "01"
+label_settings = SubResource("LabelSettings_k68uv")
+
+[node name="Day" type="Label" parent="Date"]
+offset_left = 280.0
+offset_right = 440.0
+offset_bottom = 50.0
+text = "22"
+label_settings = SubResource("LabelSettings_k68uv")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Date"]
+position = Vector2(392, 24)
+texture = SubResource("AtlasTexture_mrkni")
+
+[node name="WeekDay" type="Label" parent="Date"]
+offset_left = 373.0
+offset_top = 6.0
+offset_right = 533.0
+offset_bottom = 56.0
+text = "0"
+label_settings = SubResource("LabelSettings_sk4r2")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+autostart = true
+
+[node name="exit" type="TouchScreenButton" parent="."]
+shape = ExtResource("6_5vufo")
+
+[node name="TAudio" type="AudioStreamPlayer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="released" from="exit" to="." method="_on_exit_released"]

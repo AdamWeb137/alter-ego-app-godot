@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhpi05my245gv"]
+
+[ext_resource type="Texture2D" uid="uid://b54r7otlipjqk" path="res://AlterEgo01.png" id="1_vn0ka"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it44l"]
+atlas = ExtResource("1_vn0ka")
+region = Rect2(0, 264, 504, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krrxp"]
+size = Vector2(480, 36)
+
+[node name="SelectBox" type="Node2D"]
+
+[node name="Back" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_it44l")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -232.0
+offset_top = -13.0
+offset_right = 232.0
+offset_bottom = 13.0
+text = "Yes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+shape = SubResource("RectangleShape2D_krrxp")

@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://b3kae8xyiwkog"]
+
+[ext_resource type="Script" path="res://scripts/cal_day.gd" id="1_coxbn"]
+[ext_resource type="FontFile" uid="uid://bvg6cv845so8v" path="res://fonts/calred.png" id="1_cpaoa"]
+[ext_resource type="FontFile" uid="uid://vqm1u48spj2d" path="res://fonts/calblue.png" id="2_784qq"]
+[ext_resource type="FontFile" uid="uid://dc5gipjx0ogri" path="res://fonts/calgreen.png" id="3_2p86t"]
+[ext_resource type="FontFile" uid="uid://ndt4rpmyji3d" path="res://fonts/calicons.png" id="4_adedl"]
+[ext_resource type="Texture2D" uid="uid://dglig8i6pgydj" path="res://misc/calborder.png" id="6_3rfkc"]
+[ext_resource type="Shape2D" uid="uid://bcfg4k044gpb7" path="res://misc/cal_day.tres" id="7_tmog5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_co5iw"]
+font = ExtResource("1_cpaoa")
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ucov"]
+font = ExtResource("2_784qq")
+
+[sub_resource type="LabelSettings" id="LabelSettings_oot6c"]
+font = ExtResource("3_2p86t")
+
+[sub_resource type="LabelSettings" id="LabelSettings_k4t2k"]
+font = ExtResource("4_adedl")
+
+[node name="CalDay" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_coxbn")
+
+[node name="day0" type="Label" parent="."]
+visible = false
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 72.0
+offset_bottom = 39.0
+text = "01"
+label_settings = SubResource("LabelSettings_co5iw")
+
+[node name="day6" type="Label" parent="."]
+visible = false
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 72.0
+offset_bottom = 39.0
+text = "01"
+label_settings = SubResource("LabelSettings_5ucov")
+
+[node name="dayweek" type="Label" parent="."]
+visible = false
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 72.0
+offset_bottom = 39.0
+text = "01"
+label_settings = SubResource("LabelSettings_oot6c")
+
+[node name="border" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 1, 0.258824, 1)
+position = Vector2(32, 16)
+texture = ExtResource("6_3rfkc")
+
+[node name="Stamp" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_k4t2k")
+
+[node name="CalBtn" type="TouchScreenButton" parent="."]
+position = Vector2(32, 16)
+shape = ExtResource("7_tmog5")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+position = Vector2(32, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = ExtResource("7_tmog5")

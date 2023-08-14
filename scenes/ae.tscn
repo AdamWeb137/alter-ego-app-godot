@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2v6p2tnbcuyg"]
+
+[ext_resource type="Texture2D" uid="uid://x0o1gofxc2d2" path="res://face/AlterEgoFace00.png" id="1_b4ic5"]
+[ext_resource type="Script" path="res://scripts/ae.gd" id="2_6lbg5"]
+[ext_resource type="Texture2D" uid="uid://b54r7otlipjqk" path="res://AlterEgo01.png" id="2_k4uek"]
+[ext_resource type="Texture2D" uid="uid://diqo0yxmoeben" path="res://scan.png" id="3_jce6x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wggaa"]
+atlas = ExtResource("2_k4uek")
+region = Rect2(736, 0, 240, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fud1"]
+atlas = ExtResource("2_k4uek")
+region = Rect2(488.135, 0, 239.865, 160.304)
+
+[node name="AEFace" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_b4ic5")
+script = ExtResource("2_6lbg5")
+
+[node name="atlassprites" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="static" type="Sprite2D" parent="atlassprites"]
+visible = false
+modulate = Color(1, 1, 1, 0.156863)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_wggaa")
+
+[node name="scan" type="Sprite2D" parent="atlassprites"]
+visible = false
+modulate = Color(0.690196, 0.984314, 0.247059, 0.196078)
+texture = ExtResource("3_jce6x")
+
+[node name="border" type="Sprite2D" parent="atlassprites"]
+visible = false
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_8fud1")

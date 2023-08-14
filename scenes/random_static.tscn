@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bca0aera5kxwi"]
+
+[ext_resource type="Script" path="res://scripts/random_static.gd" id="1_0slsy"]
+[ext_resource type="Shader" path="res://scripts/random_static.gdshader" id="1_k7rwd"]
+[ext_resource type="Texture2D" uid="uid://cwmvuuw1fjpci" path="res://static.png" id="2_75i7l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aiyno"]
+shader = ExtResource("1_k7rwd")
+
+[node name="RandomStatic" type="Node2D"]
+z_index = 4
+script = ExtResource("1_0slsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.239216)
+texture_filter = 1
+material = SubResource("ShaderMaterial_aiyno")
+scale = Vector2(1, 2)
+texture = ExtResource("2_75i7l")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="MoveTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_set_timer"]
+[connection signal="timeout" from="MoveTimer" to="." method="_set_move_timer"]

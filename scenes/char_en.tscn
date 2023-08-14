@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=3 uid="uid://cunewfm3g1n2m"]
+
+[ext_resource type="Script" path="res://scripts/char_en.gd" id="1_3frns"]
+[ext_resource type="Texture2D" uid="uid://dim8sngum8nu3" path="res://worlden/AlterEgoBG00.png" id="1_iawb3"]
+[ext_resource type="Texture2D" uid="uid://b8511a6rffmhp" path="res://worlden/AlterEgo01a.png" id="2_4boxi"]
+[ext_resource type="PackedScene" uid="uid://cqbs5nlghjvaj" path="res://scenes/exit_btn.tscn" id="4_ka5mq"]
+[ext_resource type="PackedScene" uid="uid://du8mo0nweakna" path="res://scenes/dialouge_box.tscn" id="4_m7t12"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoopj"]
+atlas = ExtResource("2_4boxi")
+region = Rect2(0, 0, 480, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3t6s"]
+atlas = ExtResource("2_4boxi")
+region = Rect2(0, 48, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0juy"]
+atlas = ExtResource("2_4boxi")
+region = Rect2(32, 47, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhgfi"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpkjd"]
+atlas = ExtResource("2_4boxi")
+region = Rect2(64, 48, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ark4r"]
+atlas = ExtResource("2_4boxi")
+region = Rect2(95, 47, 32, 32)
+
+[node name="CharEn" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_3frns")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.552941, 0.552941, 0.552941, 1)
+texture = ExtResource("1_iawb3")
+
+[node name="Header" type="Sprite2D" parent="."]
+position = Vector2(0, -256)
+texture = SubResource("AtlasTexture_aoopj")
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="lbtn" type="TouchScreenButton" parent="Buttons"]
+position = Vector2(-224, -16)
+texture_normal = SubResource("AtlasTexture_p3t6s")
+texture_pressed = SubResource("AtlasTexture_m0juy")
+shape = SubResource("RectangleShape2D_hhgfi")
+
+[node name="rbtn" type="TouchScreenButton" parent="Buttons"]
+position = Vector2(192, -16)
+texture_normal = SubResource("AtlasTexture_wpkjd")
+texture_pressed = SubResource("AtlasTexture_ark4r")
+shape = SubResource("RectangleShape2D_hhgfi")
+
+[node name="Characters" type="Node2D" parent="."]
+position = Vector2(6, 0)
+
+[node name="DialougeBox" parent="." instance=ExtResource("4_m7t12")]
+position = Vector2(-504, 0)
+
+[node name="ExitBtn" parent="." instance=ExtResource("4_ka5mq")]
+
+[connection signal="pressed" from="Buttons/lbtn" to="." method="arrow_press" binds= [-1]]
+[connection signal="pressed" from="Buttons/rbtn" to="." method="arrow_press" binds= [1]]

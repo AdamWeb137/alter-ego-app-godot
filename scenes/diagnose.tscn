@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccoucnjvjyrx7"]
+
+[ext_resource type="Script" path="res://scripts/diagnose.gd" id="1_b8qmg"]
+[ext_resource type="PackedScene" uid="uid://du8mo0nweakna" path="res://scenes/dialouge_box.tscn" id="2_bdo3j"]
+
+[node name="Diagnose" type="Node2D"]
+script = ExtResource("1_b8qmg")
+
+[node name="DialougeBox" parent="." instance=ExtResource("2_bdo3j")]

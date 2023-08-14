@@ -1,0 +1,47 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="AlterEgo"
+config/description="Alter Ego artificial intelligence from Danganronpa"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.1", "GL Compatibility")
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="res://spike.png"
+config/icon="res://alteregoIcon114x114.png"
+config/macos_native_icon="res://ae.icns"
+config/windows_native_icon="res://ae.ico"
+
+[autoload]
+
+Global="*res://scripts/Global.gd"
+ScriptHelper="*res://scripts/ScriptHelper.gd"
+Sound="*res://scripts/Sound.gd"
+
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=320
+window/stretch/mode="viewport"
+
+[gui]
+
+theme/custom_font="res://NotoSansJP-Regular.ttf"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

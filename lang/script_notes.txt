@@ -1,0 +1,79 @@
+SHINDAN translates to "diagnose" (probably for which character are you mode)
+URANAI translates to "fortune telling"
+CHKVARN could mean "new" or "not"? (context implies that it checks if var is 0)
+
+<P> is new paragraph, otherwise 3 lines
+<PICOFF> is a thing and it appears only once
+"\n", "\r", "JP", "TIMEON", "TIMEOFF", "REACT", "REACTE", "CALENDARON", "PICON", "PICOFF",
+"FACE", "P", "SELECT", "SELECTEND", "VOICE"
+
+ORACLE in original code refers to the "which character are you"
+Hensu in original code refers to script varaibles SHINDAN, URANAI,etc
+["MONOKUMAPIC", "SHINDAN", "VISITNUM", "RANKING", "URANAI"]
+
+TRUE is for ? (things you can get to in freetalk?)
+FALSE is for ? (things you can't get to in freetalk?)
+
+000 is HELP
+001 is time specific sayings
+002 is holidays
+003 is impressions
+004 is also impressions
+005 is stories of friends
+006 is ranking
+007 is just fortune telling
+008 is hopes peak academy stuff
+009 is images alter ego has found
+010 is the "which danganronpa character are you minigame"
+011 is something to do with visiting?
+012 is monomono machine items
+
+free_time = 3,4,5,6,7,8,9,11,12
+
+3 lines by default, unless <P>?
+
+CHK (check) types:
+MOR (morning) (5am to noon)
+DAYTIME (noon to 6pm)
+NIGHT (6pm to midnight)
+MIDNIGHT (mightnight to 6am)
+DAY(Month,Day)
+EVENT(month,week number,weekday) (used for holidays which fall on specific places on calendar rather than on a fixed number date)
+week number = (day-1) // 7 + 1
+VAR (presumably boolean)
+VARN (presumably boolean)
+
+dont forget IF()
+if only checks == so it shouldn't be too hard to code
+= only occurs on lines where there is variable assignment or an IF
+
+
+//world encyclopedia stuff
+private string[] text_title = new string[35]
+{
+	"学園紹介・希望ヶ峰学園", "学園紹介・購買部", "学園紹介・モノモノマシーン", "学園紹介・図書室", "学園紹介・トラッシュルーム", "学園紹介・ランドリー", "学園紹介・プール", "学園紹介・娯楽室", "学園紹介・物理室", "学園紹介・脱衣所",
+	"学園紹介・保健室", "学園紹介・大浴場", "学園紹介・音楽室", "学園紹介・美術室", "学園紹介・生物室", "学園紹介・武道場", "学園紹介・植物庭園", "学園紹介・厨房", "学園紹介・食堂", "用語紹介・自由時間",
+	"用語紹介・オシオキ", "用語紹介・クロ", "用語紹介・外道天使☆もちもちプリンセス", "用語紹介・校則", "用語紹介・チミドロフィーバー", "用語紹介・卒業", "用語紹介・電子生徒手帳", "用語紹介・フェンリル", "用語紹介・夜時間", "用語紹介・人類史上最大最悪の絶望的事件",
+	"用語紹介・学級裁判", "用語紹介・ザ・モノクマファイル", "用語紹介・教室", "用語紹介・超高校級", "用語紹介・暮威慈畏大亜紋土"
+};
+
+"School Introduction - Kibogamine Gakuen", "School Introduction - Purchasing Department", "School Introduction - Monomono Machine", "School Introduction - Library", "School Introduction - Trash Room", "School Introduction - Laundry", " School Introduction/Pool", "School Introduction/Recreation Room", "School Introduction/Physics Room", "School Introduction/Dressing Room",
+"Introduction to the school/health room", "Introduction to the school/large public bath", "Introduction to the school/music room", "Introduction to the school/art room", "Introduction to the school/biology room", "Introduction to the school/martial arts hall", "School" Introduction: Botanical Garden", "Introduction: Kitchen", "Introduction: Cafeteria", "Terminology: Free Time",
+"Introduction of terms - Oshioki", "Introduction of terms - Kuro", "Introduction of terms - Gedo Tenshi☆Mochimochi Princess", "Introduction of terms - school rules", "Introduction of terms - Chimidoro Fever", "Introduction of terms - Graduation", "Introduction of terms" ・Electronic Student Handbook”, “Introduction of Terms ・Fenrir”, “Introduction of Terms ・Night Time”, “Introduction of Terms ・The Greatest and Worst Desperate Incident in Human History”,
+"Introduction of terms/class trial", "Introduction of terms/The Monokuma File", "Introduction of terms/classroom", "Introduction of terms/super high school level", "Introduction of terms/Bureuijidai Amondo"
+
+private string[] text_detail = new string[35]
+{
+	"008_015", "008_016", "008_017", "008_018", "008_019", "008_020", "008_021", "008_022", "008_023", "008_024",
+	"008_025", "008_026", "008_027", "008_028", "008_032", "008_033", "008_034", "008_037", "008_038", "008_039",
+	"008_040", "008_041", "008_042", "008_043", "008_044", "008_045", "008_046", "008_047", "008_048", "008_049",
+	"008_050", "008_051", "008_052", "008_053", "008_054"
+};
+
+What alter ego says on clock load:
+55
+140 + month - 1
+152 + day - 1
+if not midnight (hour 0) then 56 + hour - 1 else 79
+if minute >= 2, 81 + minute - 2 else 080a if **:00 else 080b
+139???

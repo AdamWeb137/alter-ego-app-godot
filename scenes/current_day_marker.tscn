@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctjdnqv3wdvpn"]
+
+[ext_resource type="Texture2D" uid="uid://bfx84rvb4pgx2" path="res://circle.png" id="1_a78lh"]
+[ext_resource type="Script" path="res://scripts/current_day_marker.gd" id="1_il8uh"]
+
+[node name="CurrentDayMarker" type="Node2D"]
+texture_filter = 1
+position = Vector2(48, 24)
+script = ExtResource("1_il8uh")
+
+[node name="BigFlashing" type="Sprite2D" parent="."]
+modulate = Color(0, 0.580392, 0.878431, 0.537255)
+texture_filter = 1
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_a78lh")
+
+[node name="Orbiting" type="Sprite2D" parent="."]
+modulate = Color(0, 0.627451, 0.945098, 0.839216)
+position = Vector2(19, 0)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_a78lh")

@@ -1,0 +1,293 @@
+[gd_scene load_steps=16 format=3 uid="uid://cd7s30yivf8eq"]
+
+[ext_resource type="Script" path="res://scripts/calendar.gd" id="1_8ulry"]
+[ext_resource type="Texture2D" uid="uid://b54r7otlipjqk" path="res://AlterEgo01.png" id="2_1t56r"]
+[ext_resource type="Texture2D" uid="uid://cbvr1rjbsbp0v" path="res://pixel.png" id="2_xbk7b"]
+[ext_resource type="PackedScene" uid="uid://cqbs5nlghjvaj" path="res://scenes/exit_btn.tscn" id="3_3m5pu"]
+[ext_resource type="FontFile" uid="uid://dvsxd2p54gpfl" path="res://fonts/verysmall.png" id="5_ic2an"]
+[ext_resource type="FontFile" uid="uid://blpcp1e412fjr" path="res://fonts/months.png" id="6_16hxv"]
+[ext_resource type="Texture2D" uid="uid://dljhnavc0u466" path="res://misc/stampborder.png" id="8_24qo4"]
+[ext_resource type="FontFile" uid="uid://ndt4rpmyji3d" path="res://fonts/calicons.png" id="8_iv72b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ytrc"]
+atlas = ExtResource("2_1t56r")
+region = Rect2(497, 642, 102, 101)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c0nlr"]
+font = ExtResource("5_ic2an")
+shadow_color = Color(0, 0, 0, 0.67451)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1f4ke"]
+font = ExtResource("6_16hxv")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjebp"]
+atlas = ExtResource("2_1t56r")
+region = Rect2(8, 545, 481, 206)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pmkhu"]
+line_spacing = 2.0
+font = ExtResource("8_iv72b")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u534w"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cftem"]
+size = Vector2(32, 32)
+
+[node name="Calendar" type="Node2D"]
+z_index = 5
+texture_filter = 1
+script = ExtResource("1_8ulry")
+
+[node name="TimeHolder" type="Node2D" parent="."]
+z_index = 2
+texture_filter = 1
+position = Vector2(-504, 8)
+
+[node name="revolver" type="Sprite2D" parent="TimeHolder"]
+z_index = -2
+position = Vector2(-176, -112)
+texture = SubResource("AtlasTexture_5ytrc")
+
+[node name="Year" type="Label" parent="TimeHolder"]
+texture_filter = 1
+offset_left = -240.0
+offset_top = -160.0
+offset_right = -80.0
+offset_bottom = -110.0
+text = "2024"
+label_settings = SubResource("LabelSettings_c0nlr")
+
+[node name="Month" type="Label" parent="TimeHolder"]
+texture_filter = 1
+offset_left = -192.0
+offset_top = -128.0
+offset_right = -32.0
+offset_bottom = -59.0
+text = "g"
+label_settings = SubResource("LabelSettings_1f4ke")
+
+[node name="SpriteHolder" type="Node2D" parent="."]
+position = Vector2(-504, 0)
+
+[node name="modback" type="Sprite2D" parent="SpriteHolder"]
+modulate = Color(0, 0, 0, 0.670588)
+texture_filter = 1
+position = Vector2(0, 32)
+scale = Vector2(480, 192.84)
+texture = ExtResource("2_xbk7b")
+
+[node name="CalBase" type="Sprite2D" parent="SpriteHolder"]
+texture_filter = 2
+position = Vector2(0, 24)
+texture = SubResource("AtlasTexture_vjebp")
+
+[node name="CalItemHolders" type="Node2D" parent="SpriteHolder"]
+position = Vector2(-224, -64)
+
+[node name="ExitBtn" parent="." instance=ExtResource("3_3m5pu")]
+position = Vector2(98, 124)
+
+[node name="Stamps" type="Node2D" parent="."]
+texture_filter = 1
+position = Vector2(504, -120)
+
+[node name="modback" type="Sprite2D" parent="Stamps"]
+modulate = Color(0, 0, 0, 0.670588)
+texture_filter = 1
+position = Vector2(-2, 3)
+scale = Vector2(332, 74)
+texture = ExtResource("2_xbk7b")
+
+[node name="1" type="Label" parent="Stamps"]
+z_index = 1
+offset_left = -152.0
+offset_top = -32.0
+offset_right = -119.0
+offset_bottom = 36.0
+text = "ag"
+label_settings = SubResource("LabelSettings_pmkhu")
+autowrap_mode = 3
+
+[node name="a" type="TouchScreenButton" parent="Stamps/1"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_u534w")
+
+[node name="border" type="Sprite2D" parent="Stamps/1/a"]
+visible = false
+modulate = Color(0, 0.937255, 0.192157, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("8_24qo4")
+
+[node name="g" type="TouchScreenButton" parent="Stamps/1"]
+position = Vector2(16, 50)
+shape = SubResource("RectangleShape2D_cftem")
+
+[node name="border" type="Sprite2D" parent="Stamps/1/g"]
+visible = false
+modulate = Color(0, 0.937255, 0.192157, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("8_24qo4")
+
+[node name="2" type="Label" parent="Stamps"]
+z_index = 1
+offset_left = -104.0
+offset_top = -32.0
+offset_right = -71.0
+offset_bottom = 36.0
+text = "bh"
+label_settings = SubResource("LabelSettings_pmkhu")
+autowrap_mode = 3
+
+[node name="b" type="TouchScreenButton" parent="Stamps/2"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_u534w")
+
+[node name="border" type="Sprite2D" parent="Stamps/2/b"]
+visible = false
+modulate = Color(0, 0.937255, 0.192157, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("8_24qo4")
+
+[node name="h" type="TouchScreenButton" parent="Stamps/2"]
+position = Vector2(16, 50)
+shape = SubResource("RectangleShape2D_cftem")
+
+[node name="border" type="Sprite2D" parent="Stamps/2/h"]
+visible = false
+modulate = Color(0, 0.937255, 0.192157, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("8_24qo4")
+
+[node name="3" type="Label" parent="Stamps"]
+z_index = 1
+offset_left = -48.0
+offset_top = -32.0
+offset_right = -15.0
+offset_bottom = 36.0
+text = "ci"
+label_settings = SubResource("LabelSettings_pmkhu")
+autowrap_mode = 3
+
+[node name="c" type="TouchScreenButton" parent="Stamps/3"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_u534w")
+
+[node name="border" type="Sprite2D" parent="Stamps/3/c"]
+visible = false
+modulate = Color(0, 0.937255, 0.192157, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("8_24qo4")
+
+[node name="i" type="TouchScreenButton" parent="Stamps/3"]
+position = Vector2(16, 50)
+shape = SubResource("RectangleShape2D_cftem")
+
+[node name="border" type="Sprite2D" parent="Stamps/3/i"]
+visible = false
+modulate = Color(0, 0.937255, 0.192157, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("8_24qo4")
+
+[node name="4" type="Label" parent="Stamps"]
+z_index = 1
+offset_left = 8.0
+offset_top = -32.0
+offset_right = 41.0
+offset_bottom = 36.0
+text = "dj"
+label_settings = SubResource("LabelSettings_pmkhu")
+autowrap_mode = 3
+
+[node name="d" type="TouchScreenButton" parent="Stamps/4"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_u534w")
+
+[node name="border" type="Sprite2D" parent="Stamps/4/d"]
+visible = false
+modulate = Color(0, 0.937255, 0.192157, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("8_24qo4")
+
+[node name="j" type="TouchScreenButton" parent="Stamps/4"]
+position = Vector2(16, 50)
+shape = SubResource("RectangleShape2D_cftem")
+
+[node name="border" type="Sprite2D" parent="Stamps/4/j"]
+visible = false
+modulate = Color(0, 0.937255, 0.192157, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("8_24qo4")
+
+[node name="5" type="Label" parent="Stamps"]
+z_index = 1
+offset_left = 64.0
+offset_top = -32.0
+offset_right = 97.0
+offset_bottom = 36.0
+text = "ek"
+label_settings = SubResource("LabelSettings_pmkhu")
+autowrap_mode = 3
+
+[node name="e" type="TouchScreenButton" parent="Stamps/5"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_u534w")
+
+[node name="border" type="Sprite2D" parent="Stamps/5/e"]
+visible = false
+modulate = Color(0, 0.937255, 0.192157, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("8_24qo4")
+
+[node name="k" type="TouchScreenButton" parent="Stamps/5"]
+position = Vector2(16, 50)
+shape = SubResource("RectangleShape2D_cftem")
+
+[node name="border" type="Sprite2D" parent="Stamps/5/k"]
+visible = false
+modulate = Color(0, 0.937255, 0.192157, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("8_24qo4")
+
+[node name="6" type="Label" parent="Stamps"]
+z_index = 1
+offset_left = 120.0
+offset_top = -32.0
+offset_right = 153.0
+offset_bottom = 36.0
+text = "fl"
+label_settings = SubResource("LabelSettings_pmkhu")
+autowrap_mode = 3
+
+[node name="f" type="TouchScreenButton" parent="Stamps/6"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_u534w")
+
+[node name="border" type="Sprite2D" parent="Stamps/6/f"]
+visible = false
+modulate = Color(0, 0.937255, 0.192157, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("8_24qo4")
+
+[node name="l" type="TouchScreenButton" parent="Stamps/6"]
+position = Vector2(16, 50)
+shape = SubResource("RectangleShape2D_cftem")
+
+[node name="border" type="Sprite2D" parent="Stamps/6/l"]
+visible = false
+modulate = Color(0, 0.937255, 0.192157, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("8_24qo4")
+
+[connection signal="pressed" from="Stamps/1/a" to="." method="on_stamp_selected" binds= ["erase"]]
+[connection signal="pressed" from="Stamps/1/g" to="." method="on_stamp_selected" binds= ["g"]]
+[connection signal="pressed" from="Stamps/2/b" to="." method="on_stamp_selected" binds= ["b"]]
+[connection signal="pressed" from="Stamps/2/h" to="." method="on_stamp_selected" binds= ["h"]]
+[connection signal="pressed" from="Stamps/3/c" to="." method="on_stamp_selected" binds= ["c"]]
+[connection signal="pressed" from="Stamps/3/i" to="." method="on_stamp_selected" binds= ["i"]]
+[connection signal="pressed" from="Stamps/4/d" to="." method="on_stamp_selected" binds= ["d"]]
+[connection signal="pressed" from="Stamps/4/j" to="." method="on_stamp_selected" binds= ["j"]]
+[connection signal="pressed" from="Stamps/5/e" to="." method="on_stamp_selected" binds= ["e"]]
+[connection signal="pressed" from="Stamps/5/k" to="." method="on_stamp_selected" binds= ["k"]]
+[connection signal="pressed" from="Stamps/6/f" to="." method="on_stamp_selected" binds= ["f"]]
+[connection signal="pressed" from="Stamps/6/l" to="." method="on_stamp_selected" binds= ["l"]]

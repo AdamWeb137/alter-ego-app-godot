@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqbs5nlghjvaj"]
+
+[ext_resource type="Texture2D" uid="uid://b54r7otlipjqk" path="res://AlterEgo01.png" id="1_bn37k"]
+[ext_resource type="Script" path="res://scripts/exit_btn.gd" id="2_10hly"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu4jt"]
+atlas = ExtResource("1_bn37k")
+region = Rect2(328, 804, 136, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjlns"]
+atlas = ExtResource("1_bn37k")
+region = Rect2(470, 801, 138, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edg6p"]
+size = Vector2(135, 20)
+
+[node name="ExitBtn" type="TouchScreenButton"]
+position = Vector2(96, 120)
+texture_normal = SubResource("AtlasTexture_wu4jt")
+texture_pressed = SubResource("AtlasTexture_qjlns")
+shape = SubResource("RectangleShape2D_edg6p")
+script = ExtResource("2_10hly")
+
+[connection signal="released" from="." to="." method="_on_released"]

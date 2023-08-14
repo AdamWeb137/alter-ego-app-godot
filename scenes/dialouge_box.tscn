@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://du8mo0nweakna"]
+
+[ext_resource type="Script" path="res://scripts/dialouge_box.gd" id="1_81jai"]
+[ext_resource type="Texture2D" uid="uid://b54r7otlipjqk" path="res://AlterEgo01.png" id="1_xv7gn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idwfg"]
+atlas = ExtResource("1_xv7gn")
+region = Rect2(0, 264, 504, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i01uu"]
+atlas = ExtResource("1_xv7gn")
+region = Rect2(832, 646, 49, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3b047"]
+size = Vector2(480, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sclu6"]
+atlas = ExtResource("1_xv7gn")
+region = Rect2(900, 644, 56, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1mgr"]
+size = Vector2(32, 32)
+
+[node name="DialougeBox" type="Node2D"]
+z_index = 3
+script = ExtResource("1_81jai")
+
+[node name="Textbox" type="Sprite2D" parent="."]
+position = Vector2(0, 120)
+texture = SubResource("AtlasTexture_idwfg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Textbox"]
+offset_left = -216.0
+offset_top = -40.0
+offset_right = 184.0
+offset_bottom = 32.0
+bbcode_enabled = true
+meta_underlined = false
+
+[node name="ContinueButton" type="Node2D" parent="."]
+position = Vector2(208, 120)
+
+[node name="Sprite2D" type="Sprite2D" parent="ContinueButton"]
+visible = false
+modulate = Color(0, 0.8, 0, 1)
+position = Vector2(0, 10)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_i01uu")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ContinueButton"]
+position = Vector2(-208, 0)
+shape = SubResource("RectangleShape2D_3b047")
+
+[node name="SkipButton" type="Node2D" parent="."]
+position = Vector2(192, 56)
+
+[node name="Sprite2D" type="Sprite2D" parent="SkipButton"]
+modulate = Color(0.858824, 0.858824, 0.858824, 1)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_sclu6")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="SkipButton"]
+shape = SubResource("RectangleShape2D_j1mgr")
+
+[connection signal="meta_clicked" from="Textbox/RichTextLabel" to="." method="meta_press"]
+[connection signal="meta_hover_ended" from="Textbox/RichTextLabel" to="." method="set_meta_hover" binds= [false]]
+[connection signal="meta_hover_started" from="Textbox/RichTextLabel" to="." method="set_meta_hover" binds= [true]]
+[connection signal="pressed" from="ContinueButton/TouchScreenButton" to="." method="_cont_press"]
+[connection signal="pressed" from="SkipButton/TouchScreenButton" to="." method="exit_protocol" binds= [true]]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4ta6ilmhxo81"]
+
+[ext_resource type="Script" path="res://scripts/freetalk.gd" id="1_ypuag"]
+[ext_resource type="PackedScene" uid="uid://du8mo0nweakna" path="res://scenes/dialouge_box.tscn" id="2_inqdh"]
+
+[node name="Freetalk" type="Node2D"]
+position = Vector2(-528, 0)
+script = ExtResource("1_ypuag")
+
+[node name="DialougeBox" parent="." instance=ExtResource("2_inqdh")]
