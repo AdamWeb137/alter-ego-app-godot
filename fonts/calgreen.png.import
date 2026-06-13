@@ -13,9 +13,13 @@ dest_files=["res://.godot/imported/calgreen.png-95c37a47eeb2a3ba7f7195591046d39d
 [params]
 
 character_ranges=PackedStringArray("\'0\'-\'9\'")
+kerning_pairs=PackedStringArray()
 columns=10
 rows=1
 image_margin=Rect2i(0, 0, 0, 0)
 character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
 fallbacks=[]
 compress=true
+scaling_mode=2
