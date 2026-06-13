@@ -293,4 +293,3 @@ func chk_mess(id):
 		var vsplit = mess["eqcond"].split(":")
 		return get_var(vsplit[0]) == int(vsplit[1])
 	return true
-

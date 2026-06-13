@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsixkbk4gwxb0"]
+[gd_scene format=3 uid="uid://bsixkbk4gwxb0"]
 
 [ext_resource type="PackedScene" uid="uid://c2v6p2tnbcuyg" path="res://scenes/ae.tscn" id="1_7fq3e"]
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_7gwtw"]
+[ext_resource type="Script" uid="uid://cl5dhqmip4gfn" path="res://scripts/main.gd" id="1_7gwtw"]
 [ext_resource type="PackedScene" uid="uid://byjbhrkulaa" path="res://scenes/greeting.tscn" id="3_ee1k4"]
 [ext_resource type="PackedScene" uid="uid://bca0aera5kxwi" path="res://scenes/random_static.tscn" id="4_udtbn"]
 [ext_resource type="PackedScene" uid="uid://dat1pgplalhpn" path="res://scenes/scan_lines.tscn" id="5_5fgaw"]
@@ -11,32 +11,32 @@
 atlas = ExtResource("5_sn27d")
 region = Rect2(488, 0, 240, 160)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=1766573233]
 script = ExtResource("1_7gwtw")
 
-[node name="AEFace" parent="." instance=ExtResource("1_7fq3e")]
+[node name="AEFace" parent="." unique_id=1084860739 instance=ExtResource("1_7fq3e")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=779330261]
 
-[node name="Greeting" parent="." instance=ExtResource("3_ee1k4")]
+[node name="Greeting" parent="." unique_id=1968677337 instance=ExtResource("3_ee1k4")]
 
-[node name="RandomStatic" parent="." instance=ExtResource("4_udtbn")]
+[node name="RandomStatic" parent="." unique_id=1243626650 instance=ExtResource("4_udtbn")]
 z_index = 2
 position = Vector2(0, 32)
 scale = Vector2(2, 2)
 
-[node name="ScanLines" parent="." instance=ExtResource("5_5fgaw")]
+[node name="ScanLines" parent="." unique_id=1174058413 instance=ExtResource("5_5fgaw")]
 
-[node name="border" type="Sprite2D" parent="."]
+[node name="border" type="Sprite2D" parent="." unique_id=1988356991]
 z_index = 4
 texture_filter = 1
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_aq7nk")
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1523595694]
 volume_db = -10.0
 
-[node name="SE" type="AudioStreamPlayer" parent="."]
+[node name="SE" type="AudioStreamPlayer" parent="." unique_id=1828213586]
 volume_db = -9.074
 
-[node name="VOICE" type="AudioStreamPlayer" parent="."]
+[node name="VOICE" type="AudioStreamPlayer" parent="." unique_id=340448069]
