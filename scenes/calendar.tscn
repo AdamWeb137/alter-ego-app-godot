@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b54r7otlipjqk" path="res://AlterEgo01.png" id="2_1t56r"]
 [ext_resource type="Texture2D" uid="uid://cbvr1rjbsbp0v" path="res://pixel.png" id="2_xbk7b"]
 [ext_resource type="PackedScene" uid="uid://cqbs5nlghjvaj" path="res://scenes/exit_btn.tscn" id="3_3m5pu"]
-[ext_resource type="FontFile" uid="uid://dvsxd2p54gpfl" path="res://fonts/verysmall.png" id="5_ic2an"]
+[ext_resource type="FontFile" uid="uid://bpxu1i7mw7ff5" path="res://fonts/smallnums2-2.png" id="3_vqkwy"]
 [ext_resource type="FontFile" uid="uid://blpcp1e412fjr" path="res://fonts/months.png" id="6_16hxv"]
 [ext_resource type="Texture2D" uid="uid://dljhnavc0u466" path="res://misc/stampborder.png" id="8_24qo4"]
 [ext_resource type="FontFile" uid="uid://ndt4rpmyji3d" path="res://fonts/calicons.png" id="8_iv72b"]
@@ -14,9 +14,9 @@ atlas = ExtResource("2_1t56r")
 region = Rect2(497, 642, 102, 101)
 
 [sub_resource type="LabelSettings" id="LabelSettings_c0nlr"]
-font = ExtResource("5_ic2an")
-font_size = 32
-shadow_color = Color(0, 0, 0, 0.67451)
+font = ExtResource("3_vqkwy")
+font_size = 41
+shadow_size = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_1f4ke"]
 font = ExtResource("6_16hxv")
@@ -24,7 +24,7 @@ font_size = 36
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vjebp"]
 atlas = ExtResource("2_1t56r")
-region = Rect2(8, 545, 481, 206)
+region = Rect2(8, 545, 480, 206)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pmkhu"]
 line_spacing = 2.0
@@ -38,7 +38,7 @@ size = Vector2(32, 32)
 size = Vector2(32, 32)
 
 [node name="Calendar" type="Node2D" unique_id=1019308408]
-z_index = 5
+z_index = 2
 texture_filter = 1
 script = ExtResource("1_8ulry")
 
@@ -49,23 +49,25 @@ position = Vector2(-504, 8)
 
 [node name="revolver" type="Sprite2D" parent="TimeHolder" unique_id=427136963]
 z_index = -2
-position = Vector2(-176, -112)
+position = Vector2(-196, -130)
 texture = SubResource("AtlasTexture_5ytrc")
 
 [node name="Year" type="Label" parent="TimeHolder" unique_id=1192448157]
+z_index = 6
+z_as_relative = false
 texture_filter = 1
-offset_left = -240.0
-offset_top = -160.0
-offset_right = -80.0
-offset_bottom = -110.0
-text = "2024"
+offset_left = -236.0
+offset_top = -166.0
+offset_right = -76.0
+offset_bottom = -116.0
+text = "2017"
 label_settings = SubResource("LabelSettings_c0nlr")
 
 [node name="Month" type="Label" parent="TimeHolder" unique_id=1285606396]
 texture_filter = 1
-offset_left = -192.0
+offset_left = -207.0
 offset_top = -128.0
-offset_right = -32.0
+offset_right = -47.0
 offset_bottom = -59.0
 text = "g"
 label_settings = SubResource("LabelSettings_1f4ke")
@@ -74,7 +76,7 @@ label_settings = SubResource("LabelSettings_1f4ke")
 position = Vector2(-504, 0)
 
 [node name="modback" type="Sprite2D" parent="SpriteHolder" unique_id=1572777321]
-modulate = Color(0, 0, 0, 0.670588)
+modulate = Color(0, 0, 0, 0.50980395)
 texture_filter = 1
 position = Vector2(0, 32)
 scale = Vector2(480, 192.84)
@@ -89,6 +91,8 @@ texture = SubResource("AtlasTexture_vjebp")
 position = Vector2(-224, -64)
 
 [node name="ExitBtn" parent="." unique_id=1382617488 instance=ExtResource("3_3m5pu")]
+z_index = 6
+z_as_relative = false
 position = Vector2(98, 124)
 
 [node name="Stamps" type="Node2D" parent="." unique_id=365363123]

@@ -288,4 +288,3 @@ func _process(delta):
 		add_char()
 		if char_index == get_bline_length():
 			line_finished()
-
