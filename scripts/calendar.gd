@@ -10,7 +10,13 @@ func leap_year(year):
 	return 1
 	
 func get_first_weekday_of_month(day,weekday):
-	return 8 - ((day-weekday) % 7)
+	# Let w_s be the weekday on the first of the month
+	# Let w_n be the weekday today
+	# Working in Z_7 (cyclic group of order 7),
+	# Then, w_s + day - 1 = w_n 
+	# So, w_s = w_n - day + 1
+	var tmp_result = (weekday + 1 - day) % 7
+	return (tmp_result + 7) % 7
 	
 func set_up_cal_item(day,weekday,row,calitem):
 	calitem.day = str(day)
@@ -54,12 +60,12 @@ func load_cal_data():
 	return json.get_data()
 	
 func init_cal_data():
-	for month in cal_data:
-		for day in cal_data[month]:
-			$SpriteHolder/CalItemHolders.get_child(int(day)-1).get_node("Stamp").text = cal_data[month][day]
+	for day in cal_data[cur_year][cur_month]:
+		$SpriteHolder/CalItemHolders.get_child(int(day)-1).get_node("Stamp").text = cal_data[cur_year][cur_month][day]
 
 var cal_data
 var cur_month
+var cur_year
 func _ready():
 	
 	cal_data = load_cal_data()
@@ -79,15 +85,19 @@ func _ready():
 	
 	var current_time = Time.get_datetime_dict_from_system()
 	cur_month = str(current_time.month)
+	cur_year = str(current_time.year)
 	
-	if not str(current_time.month) in cal_data:
-		cal_data[str(current_time.month)] = {}
+	if not cur_year in cal_data:
+		cal_data[cur_year] = {}
+	
+	if not cur_month in cal_data[cur_year]:
+		cal_data[cur_year][cur_month] = {}
 	
 	var cal_day = load("res://scenes/cal_day.tscn")
 	var curr_day_marker = load("res://scenes/current_day_marker.tscn")
 	var letters = "aabcdefghijklmnop"
 	var days_in_month = [0, 31, 28 + leap_year(current_time.year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-	var weekday = get_first_weekday_of_month(current_time.day,current_time.weekday)
+	var weekday = get_first_weekday_of_month(current_time.day, current_time.weekday)
 	var row = 0
 	for i in range(1,days_in_month[current_time.month]+1):
 		var calitem = cal_day.instantiate()
@@ -118,12 +128,12 @@ func set_stamp(calitem):
 	if selected_letter == "erase":
 		calitem.get_node("Stamp").text = ""
 		calitem.get_node("border").visible=false
-		cal_data[cur_month].erase(str(calitem.day))
+		cal_data[cur_year][cur_month].erase(str(calitem.day))
 		save_cal_data()
 		return
 	calitem.get_node("border").visible=true
 	calitem.get_node("Stamp").text = selected_letter
-	cal_data[cur_month][str(calitem.day)]=selected_letter
+	cal_data[cur_year][cur_month][str(calitem.day)]=selected_letter
 	save_cal_data()
 	
 

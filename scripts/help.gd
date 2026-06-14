@@ -1,7 +1,7 @@
 extends Node2D
 
 func tween_finished():
-	$DialougeBox.load_mess("000_001")
+	$DialougeBox.load_mess("000_020")
 
 func _ready():
 	#skip_button_tween()

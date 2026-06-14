@@ -3,6 +3,11 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 func get_mess_id():
 	rng.randomize()
+	# Introductory message
+	if ScriptHelper.get_var("VISITNUM") == 0:
+		ScriptHelper.add_var("VISITNUM", 1)
+		ScriptHelper.save_vars()
+		return "000_001"
 	for id in ScriptHelper.type_messes[2]:
 		if ScriptHelper.chk_mess("002_"+id):
 			return "002_"+id

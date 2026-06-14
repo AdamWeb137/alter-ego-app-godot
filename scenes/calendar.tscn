@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cd7s30yivf8eq"]
+[gd_scene format=3 uid="uid://cd7s30yivf8eq"]
 
-[ext_resource type="Script" path="res://scripts/calendar.gd" id="1_8ulry"]
+[ext_resource type="Script" uid="uid://bkjp3g7luh508" path="res://scripts/calendar.gd" id="1_8ulry"]
 [ext_resource type="Texture2D" uid="uid://b54r7otlipjqk" path="res://AlterEgo01.png" id="2_1t56r"]
 [ext_resource type="Texture2D" uid="uid://cbvr1rjbsbp0v" path="res://pixel.png" id="2_xbk7b"]
 [ext_resource type="PackedScene" uid="uid://cqbs5nlghjvaj" path="res://scenes/exit_btn.tscn" id="3_3m5pu"]
-[ext_resource type="FontFile" uid="uid://dvsxd2p54gpfl" path="res://fonts/verysmall.png" id="5_ic2an"]
+[ext_resource type="FontFile" uid="uid://bpxu1i7mw7ff5" path="res://fonts/smallnums2-2.png" id="3_vqkwy"]
 [ext_resource type="FontFile" uid="uid://blpcp1e412fjr" path="res://fonts/months.png" id="6_16hxv"]
 [ext_resource type="Texture2D" uid="uid://dljhnavc0u466" path="res://misc/stampborder.png" id="8_24qo4"]
 [ext_resource type="FontFile" uid="uid://ndt4rpmyji3d" path="res://fonts/calicons.png" id="8_iv72b"]
@@ -14,19 +14,22 @@ atlas = ExtResource("2_1t56r")
 region = Rect2(497, 642, 102, 101)
 
 [sub_resource type="LabelSettings" id="LabelSettings_c0nlr"]
-font = ExtResource("5_ic2an")
-shadow_color = Color(0, 0, 0, 0.67451)
+font = ExtResource("3_vqkwy")
+font_size = 41
+shadow_size = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_1f4ke"]
 font = ExtResource("6_16hxv")
+font_size = 36
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vjebp"]
 atlas = ExtResource("2_1t56r")
-region = Rect2(8, 545, 481, 206)
+region = Rect2(8, 545, 480, 206)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pmkhu"]
 line_spacing = 2.0
 font = ExtResource("8_iv72b")
+font_size = 32
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u534w"]
 size = Vector2(32, 32)
@@ -34,72 +37,76 @@ size = Vector2(32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cftem"]
 size = Vector2(32, 32)
 
-[node name="Calendar" type="Node2D"]
-z_index = 5
+[node name="Calendar" type="Node2D" unique_id=1019308408]
+z_index = 2
 texture_filter = 1
 script = ExtResource("1_8ulry")
 
-[node name="TimeHolder" type="Node2D" parent="."]
+[node name="TimeHolder" type="Node2D" parent="." unique_id=780758171]
 z_index = 2
 texture_filter = 1
 position = Vector2(-504, 8)
 
-[node name="revolver" type="Sprite2D" parent="TimeHolder"]
+[node name="revolver" type="Sprite2D" parent="TimeHolder" unique_id=427136963]
 z_index = -2
-position = Vector2(-176, -112)
+position = Vector2(-196, -130)
 texture = SubResource("AtlasTexture_5ytrc")
 
-[node name="Year" type="Label" parent="TimeHolder"]
+[node name="Year" type="Label" parent="TimeHolder" unique_id=1192448157]
+z_index = 6
+z_as_relative = false
 texture_filter = 1
-offset_left = -240.0
-offset_top = -160.0
-offset_right = -80.0
-offset_bottom = -110.0
-text = "2024"
+offset_left = -236.0
+offset_top = -166.0
+offset_right = -76.0
+offset_bottom = -116.0
+text = "2017"
 label_settings = SubResource("LabelSettings_c0nlr")
 
-[node name="Month" type="Label" parent="TimeHolder"]
+[node name="Month" type="Label" parent="TimeHolder" unique_id=1285606396]
 texture_filter = 1
-offset_left = -192.0
+offset_left = -207.0
 offset_top = -128.0
-offset_right = -32.0
+offset_right = -47.0
 offset_bottom = -59.0
 text = "g"
 label_settings = SubResource("LabelSettings_1f4ke")
 
-[node name="SpriteHolder" type="Node2D" parent="."]
+[node name="SpriteHolder" type="Node2D" parent="." unique_id=1098481002]
 position = Vector2(-504, 0)
 
-[node name="modback" type="Sprite2D" parent="SpriteHolder"]
-modulate = Color(0, 0, 0, 0.670588)
+[node name="modback" type="Sprite2D" parent="SpriteHolder" unique_id=1572777321]
+modulate = Color(0, 0, 0, 0.50980395)
 texture_filter = 1
 position = Vector2(0, 32)
 scale = Vector2(480, 192.84)
 texture = ExtResource("2_xbk7b")
 
-[node name="CalBase" type="Sprite2D" parent="SpriteHolder"]
+[node name="CalBase" type="Sprite2D" parent="SpriteHolder" unique_id=1704652119]
 texture_filter = 2
 position = Vector2(0, 24)
 texture = SubResource("AtlasTexture_vjebp")
 
-[node name="CalItemHolders" type="Node2D" parent="SpriteHolder"]
+[node name="CalItemHolders" type="Node2D" parent="SpriteHolder" unique_id=1399528937]
 position = Vector2(-224, -64)
 
-[node name="ExitBtn" parent="." instance=ExtResource("3_3m5pu")]
+[node name="ExitBtn" parent="." unique_id=1382617488 instance=ExtResource("3_3m5pu")]
+z_index = 6
+z_as_relative = false
 position = Vector2(98, 124)
 
-[node name="Stamps" type="Node2D" parent="."]
+[node name="Stamps" type="Node2D" parent="." unique_id=365363123]
 texture_filter = 1
 position = Vector2(504, -120)
 
-[node name="modback" type="Sprite2D" parent="Stamps"]
+[node name="modback" type="Sprite2D" parent="Stamps" unique_id=577994494]
 modulate = Color(0, 0, 0, 0.670588)
 texture_filter = 1
 position = Vector2(-2, 3)
 scale = Vector2(332, 74)
 texture = ExtResource("2_xbk7b")
 
-[node name="1" type="Label" parent="Stamps"]
+[node name="1" type="Label" parent="Stamps" unique_id=946112397]
 z_index = 1
 offset_left = -152.0
 offset_top = -32.0
@@ -109,27 +116,27 @@ text = "ag"
 label_settings = SubResource("LabelSettings_pmkhu")
 autowrap_mode = 3
 
-[node name="a" type="TouchScreenButton" parent="Stamps/1"]
+[node name="a" type="TouchScreenButton" parent="Stamps/1" unique_id=1299071779]
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_u534w")
 
-[node name="border" type="Sprite2D" parent="Stamps/1/a"]
+[node name="border" type="Sprite2D" parent="Stamps/1/a" unique_id=445672433]
 visible = false
 modulate = Color(0, 0.937255, 0.192157, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("8_24qo4")
 
-[node name="g" type="TouchScreenButton" parent="Stamps/1"]
+[node name="g" type="TouchScreenButton" parent="Stamps/1" unique_id=91237309]
 position = Vector2(16, 50)
 shape = SubResource("RectangleShape2D_cftem")
 
-[node name="border" type="Sprite2D" parent="Stamps/1/g"]
+[node name="border" type="Sprite2D" parent="Stamps/1/g" unique_id=661314390]
 visible = false
 modulate = Color(0, 0.937255, 0.192157, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("8_24qo4")
 
-[node name="2" type="Label" parent="Stamps"]
+[node name="2" type="Label" parent="Stamps" unique_id=1026956699]
 z_index = 1
 offset_left = -104.0
 offset_top = -32.0
@@ -139,27 +146,27 @@ text = "bh"
 label_settings = SubResource("LabelSettings_pmkhu")
 autowrap_mode = 3
 
-[node name="b" type="TouchScreenButton" parent="Stamps/2"]
+[node name="b" type="TouchScreenButton" parent="Stamps/2" unique_id=458161896]
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_u534w")
 
-[node name="border" type="Sprite2D" parent="Stamps/2/b"]
+[node name="border" type="Sprite2D" parent="Stamps/2/b" unique_id=792690067]
 visible = false
 modulate = Color(0, 0.937255, 0.192157, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("8_24qo4")
 
-[node name="h" type="TouchScreenButton" parent="Stamps/2"]
+[node name="h" type="TouchScreenButton" parent="Stamps/2" unique_id=1794712130]
 position = Vector2(16, 50)
 shape = SubResource("RectangleShape2D_cftem")
 
-[node name="border" type="Sprite2D" parent="Stamps/2/h"]
+[node name="border" type="Sprite2D" parent="Stamps/2/h" unique_id=1885037299]
 visible = false
 modulate = Color(0, 0.937255, 0.192157, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("8_24qo4")
 
-[node name="3" type="Label" parent="Stamps"]
+[node name="3" type="Label" parent="Stamps" unique_id=1840498310]
 z_index = 1
 offset_left = -48.0
 offset_top = -32.0
@@ -169,27 +176,27 @@ text = "ci"
 label_settings = SubResource("LabelSettings_pmkhu")
 autowrap_mode = 3
 
-[node name="c" type="TouchScreenButton" parent="Stamps/3"]
+[node name="c" type="TouchScreenButton" parent="Stamps/3" unique_id=1895408306]
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_u534w")
 
-[node name="border" type="Sprite2D" parent="Stamps/3/c"]
+[node name="border" type="Sprite2D" parent="Stamps/3/c" unique_id=90094464]
 visible = false
 modulate = Color(0, 0.937255, 0.192157, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("8_24qo4")
 
-[node name="i" type="TouchScreenButton" parent="Stamps/3"]
+[node name="i" type="TouchScreenButton" parent="Stamps/3" unique_id=334318286]
 position = Vector2(16, 50)
 shape = SubResource("RectangleShape2D_cftem")
 
-[node name="border" type="Sprite2D" parent="Stamps/3/i"]
+[node name="border" type="Sprite2D" parent="Stamps/3/i" unique_id=1103654568]
 visible = false
 modulate = Color(0, 0.937255, 0.192157, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("8_24qo4")
 
-[node name="4" type="Label" parent="Stamps"]
+[node name="4" type="Label" parent="Stamps" unique_id=2029222664]
 z_index = 1
 offset_left = 8.0
 offset_top = -32.0
@@ -199,27 +206,27 @@ text = "dj"
 label_settings = SubResource("LabelSettings_pmkhu")
 autowrap_mode = 3
 
-[node name="d" type="TouchScreenButton" parent="Stamps/4"]
+[node name="d" type="TouchScreenButton" parent="Stamps/4" unique_id=938684932]
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_u534w")
 
-[node name="border" type="Sprite2D" parent="Stamps/4/d"]
+[node name="border" type="Sprite2D" parent="Stamps/4/d" unique_id=2074773031]
 visible = false
 modulate = Color(0, 0.937255, 0.192157, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("8_24qo4")
 
-[node name="j" type="TouchScreenButton" parent="Stamps/4"]
+[node name="j" type="TouchScreenButton" parent="Stamps/4" unique_id=1174733179]
 position = Vector2(16, 50)
 shape = SubResource("RectangleShape2D_cftem")
 
-[node name="border" type="Sprite2D" parent="Stamps/4/j"]
+[node name="border" type="Sprite2D" parent="Stamps/4/j" unique_id=114054785]
 visible = false
 modulate = Color(0, 0.937255, 0.192157, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("8_24qo4")
 
-[node name="5" type="Label" parent="Stamps"]
+[node name="5" type="Label" parent="Stamps" unique_id=1307036507]
 z_index = 1
 offset_left = 64.0
 offset_top = -32.0
@@ -229,27 +236,27 @@ text = "ek"
 label_settings = SubResource("LabelSettings_pmkhu")
 autowrap_mode = 3
 
-[node name="e" type="TouchScreenButton" parent="Stamps/5"]
+[node name="e" type="TouchScreenButton" parent="Stamps/5" unique_id=595396178]
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_u534w")
 
-[node name="border" type="Sprite2D" parent="Stamps/5/e"]
+[node name="border" type="Sprite2D" parent="Stamps/5/e" unique_id=366421767]
 visible = false
 modulate = Color(0, 0.937255, 0.192157, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("8_24qo4")
 
-[node name="k" type="TouchScreenButton" parent="Stamps/5"]
+[node name="k" type="TouchScreenButton" parent="Stamps/5" unique_id=742205786]
 position = Vector2(16, 50)
 shape = SubResource("RectangleShape2D_cftem")
 
-[node name="border" type="Sprite2D" parent="Stamps/5/k"]
+[node name="border" type="Sprite2D" parent="Stamps/5/k" unique_id=2043473108]
 visible = false
 modulate = Color(0, 0.937255, 0.192157, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("8_24qo4")
 
-[node name="6" type="Label" parent="Stamps"]
+[node name="6" type="Label" parent="Stamps" unique_id=894295452]
 z_index = 1
 offset_left = 120.0
 offset_top = -32.0
@@ -259,21 +266,21 @@ text = "fl"
 label_settings = SubResource("LabelSettings_pmkhu")
 autowrap_mode = 3
 
-[node name="f" type="TouchScreenButton" parent="Stamps/6"]
+[node name="f" type="TouchScreenButton" parent="Stamps/6" unique_id=37686401]
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_u534w")
 
-[node name="border" type="Sprite2D" parent="Stamps/6/f"]
+[node name="border" type="Sprite2D" parent="Stamps/6/f" unique_id=294593114]
 visible = false
 modulate = Color(0, 0.937255, 0.192157, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("8_24qo4")
 
-[node name="l" type="TouchScreenButton" parent="Stamps/6"]
+[node name="l" type="TouchScreenButton" parent="Stamps/6" unique_id=2102556855]
 position = Vector2(16, 50)
 shape = SubResource("RectangleShape2D_cftem")
 
-[node name="border" type="Sprite2D" parent="Stamps/6/l"]
+[node name="border" type="Sprite2D" parent="Stamps/6/l" unique_id=1359360400]
 visible = false
 modulate = Color(0, 0.937255, 0.192157, 1)
 scale = Vector2(2, 2)

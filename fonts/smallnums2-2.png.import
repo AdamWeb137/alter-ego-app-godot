@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://bpxu1i7mw7ff5"
+path="res://.godot/imported/smallnums2-2.png-6e9b29c7b7881a3b23f2092b84b61cac.fontdata"
+
+[deps]
+
+source_file="res://fonts/smallnums2-2.png"
+dest_files=["res://.godot/imported/smallnums2-2.png-6e9b29c7b7881a3b23f2092b84b61cac.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\'0\'-\'9\'")
+kerning_pairs=PackedStringArray()
+columns=10
+rows=1
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(11, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=true
+scaling_mode=2

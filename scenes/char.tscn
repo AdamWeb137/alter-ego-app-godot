@@ -1,19 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://ybpowdx3x4rf"]
+[gd_scene format=3 uid="uid://ybpowdx3x4rf"]
 
 [ext_resource type="FontFile" uid="uid://ci3b784dfraxh" path="res://worlden/characters.png" id="1_5j5te"]
-[ext_resource type="Script" path="res://scripts/charbtn.gd" id="1_p17ie"]
+[ext_resource type="Script" uid="uid://crreb3iso2b4q" path="res://scripts/charbtn.gd" id="1_p17ie"]
 [ext_resource type="Texture2D" uid="uid://cbvr1rjbsbp0v" path="res://pixel.png" id="2_6e7fw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_51o10"]
 font = ExtResource("1_5j5te")
+font_size = 216
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvar2"]
 size = Vector2(56, 216)
 
-[node name="Char" type="Node2D"]
+[node name="Char" type="Node2D" unique_id=1295428016]
 script = ExtResource("1_p17ie")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=959881187]
 offset_left = -28.0
 offset_top = -108.0
 offset_right = 28.0
@@ -21,11 +22,11 @@ offset_bottom = 111.0
 text = "a"
 label_settings = SubResource("LabelSettings_51o10")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=1177542357]
 visible = false
 shape = SubResource("RectangleShape2D_lvar2")
 
-[node name="dark" type="Sprite2D" parent="."]
+[node name="dark" type="Sprite2D" parent="." unique_id=565878673]
 modulate = Color(0.0901961, 0.0901961, 0.0901961, 0.643137)
 scale = Vector2(56, 216)
 texture = ExtResource("2_6e7fw")

@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bc5dyub656tg4"]
+[gd_scene format=3 uid="uid://bc5dyub656tg4"]
 
-[ext_resource type="Script" path="res://scripts/clock_scene.gd" id="1_ganvm"]
+[ext_resource type="Script" uid="uid://drdi5xil4gx5w" path="res://scripts/clock_scene.gd" id="1_ganvm"]
 [ext_resource type="FontFile" uid="uid://uoki403v34qp" path="res://fonts/bignums.png" id="2_2uxt0"]
 [ext_resource type="Texture2D" uid="uid://b54r7otlipjqk" path="res://AlterEgo01.png" id="3_dho63"]
 [ext_resource type="FontFile" uid="uid://bxkm5syxol86h" path="res://fonts/smallnums2.png" id="4_7tbia"]
@@ -9,6 +9,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_uw038"]
 font = ExtResource("2_2uxt0")
+font_size = 64
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kuvqb"]
 atlas = ExtResource("3_dho63")
@@ -16,6 +17,7 @@ region = Rect2(731, 376, 24, 50)
 
 [sub_resource type="LabelSettings" id="LabelSettings_k68uv"]
 font = ExtResource("4_7tbia")
+font_size = 48
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2x0f2"]
 atlas = ExtResource("3_dho63")
@@ -27,69 +29,70 @@ region = Rect2(601, 867, 55, 34)
 
 [sub_resource type="LabelSettings" id="LabelSettings_sk4r2"]
 font = ExtResource("5_7gln4")
+font_size = 32
 
-[node name="ClockScene" type="Node2D"]
+[node name="ClockScene" type="Node2D" unique_id=957967558]
 z_index = 5
 script = ExtResource("1_ganvm")
 
-[node name="Time" type="Node2D" parent="."]
+[node name="Time" type="Node2D" parent="." unique_id=1568653894]
 texture_filter = 1
 position = Vector2(-144, -240)
 
-[node name="Hour" type="Label" parent="Time"]
+[node name="Hour" type="Label" parent="Time" unique_id=2111429664]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "18"
 label_settings = SubResource("LabelSettings_uw038")
 
-[node name="Colon" type="Sprite2D" parent="Time"]
+[node name="Colon" type="Sprite2D" parent="Time" unique_id=850177788]
 position = Vector2(152, 32)
 texture = SubResource("AtlasTexture_kuvqb")
 
-[node name="Minute" type="Label" parent="Time"]
+[node name="Minute" type="Label" parent="Time" unique_id=1298887901]
 offset_left = 160.0
 offset_right = 302.0
 offset_bottom = 69.0
 text = "93"
 label_settings = SubResource("LabelSettings_uw038")
 
-[node name="Date" type="Node2D" parent="."]
+[node name="Date" type="Node2D" parent="." unique_id=1750522860]
 texture_filter = 1
 position = Vector2(-208, 168)
 
-[node name="Year" type="Label" parent="Date"]
+[node name="Year" type="Label" parent="Date" unique_id=1556449476]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "2014"
 label_settings = SubResource("LabelSettings_k68uv")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Date"]
+[node name="Sprite2D2" type="Sprite2D" parent="Date" unique_id=575594535]
 position = Vector2(272, 24)
 texture = SubResource("AtlasTexture_2x0f2")
 
-[node name="Sprite2D" type="Sprite2D" parent="Date"]
+[node name="Sprite2D" type="Sprite2D" parent="Date" unique_id=194706548]
 position = Vector2(176, 24)
 texture = SubResource("AtlasTexture_2x0f2")
 
-[node name="Month" type="Label" parent="Date"]
+[node name="Month" type="Label" parent="Date" unique_id=1655297741]
 offset_left = 184.0
 offset_right = 344.0
 offset_bottom = 50.0
 text = "01"
 label_settings = SubResource("LabelSettings_k68uv")
 
-[node name="Day" type="Label" parent="Date"]
+[node name="Day" type="Label" parent="Date" unique_id=1712986868]
 offset_left = 280.0
 offset_right = 440.0
 offset_bottom = 50.0
 text = "22"
 label_settings = SubResource("LabelSettings_k68uv")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Date"]
+[node name="Sprite2D3" type="Sprite2D" parent="Date" unique_id=1818633190]
 position = Vector2(392, 24)
 texture = SubResource("AtlasTexture_mrkni")
 
-[node name="WeekDay" type="Label" parent="Date"]
+[node name="WeekDay" type="Label" parent="Date" unique_id=1115359886]
 offset_left = 373.0
 offset_top = 6.0
 offset_right = 533.0
@@ -97,14 +100,14 @@ offset_bottom = 56.0
 text = "0"
 label_settings = SubResource("LabelSettings_sk4r2")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=127127704]
 wait_time = 0.75
 autostart = true
 
-[node name="exit" type="TouchScreenButton" parent="."]
+[node name="exit" type="TouchScreenButton" parent="." unique_id=1129680069]
 shape = ExtResource("6_5vufo")
 
-[node name="TAudio" type="AudioStreamPlayer" parent="."]
+[node name="TAudio" type="AudioStreamPlayer" parent="." unique_id=1644465841]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="released" from="exit" to="." method="_on_exit_released"]
